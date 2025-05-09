@@ -19,7 +19,7 @@ void SendCurrentTime(object? obj)
         IPAddress clientAddress = IPAddress.Parse("192.168.0.255");
         int port = 11000;
         IPEndPoint remoteEP = new IPEndPoint(clientAddress, port);
-        byte[] buff = Encoding.UTF8.GetBytes(DateTime.Now.ToLongTimeString());
+        byte[] buff = Encoding.UTF8.GetBytes($"Поточний час: {DateTime.Now.ToLongTimeString()}") ;
         socket.SendTo(buff, remoteEP);
     }
 }

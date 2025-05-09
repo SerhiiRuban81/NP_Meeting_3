@@ -56,6 +56,7 @@ namespace NP_Meeting_3
                         }
                         string message = Encoding.UTF8.GetString(buff, 0, len);
                         sb.AppendLine(message);
+                        //Оновлення стрічки повідомлень
                         textBox3.BeginInvoke(new MethodInvoker(() => {
                             textBox3.Text = sb.ToString();
                         }));
@@ -87,6 +88,7 @@ namespace NP_Meeting_3
                 ProtocolType.IP);
             byte[] buff = Encoding.UTF8.GetBytes(textBox4.Text);
             IPAddress serverAddr = IPAddress.Parse(textBox6.Text);
+            // Broadcast-розсилання повідомлень
             //IPAddress serverAddr = IPAddress.Parse("192.168.0.255");
             int p = int.Parse(textBox5.Text);
             client.SendTo(buff, new IPEndPoint(serverAddr, port: p));
